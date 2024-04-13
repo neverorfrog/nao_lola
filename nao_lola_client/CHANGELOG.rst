@@ -2,8 +2,8 @@
 Changelog for package nao_lola_client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.3.0 (2024-04-13)
+------------------
 * optimize header includes from rclcpp and msgpack that were taking long
 * Contributors: Kenji Brameld
 
