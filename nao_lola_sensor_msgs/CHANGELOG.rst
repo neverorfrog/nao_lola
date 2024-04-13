@@ -2,6 +2,9 @@
 Changelog for package nao_lola_sensor_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 1.2.0 (2023-12-09)
 ------------------
 
