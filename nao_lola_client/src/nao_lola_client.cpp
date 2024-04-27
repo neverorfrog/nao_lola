@@ -126,7 +126,7 @@ void NaoLolaClient::createSubscriptions()
   RCLCPP_DEBUG(get_logger(), "Initialise subscriptions");
   joint_positions_sub =
     create_subscription<nao_lola_command_msgs::msg::JointPositions>(
-    "effectors/joint_positions", 1,
+    "effectors/joint_positions", rclcpp::SensorDataQoS(),
     [this](const nao_lola_command_msgs::msg::JointPositions & jointPositions) {
       std::lock_guard<std::mutex> guard(packer_mutex);
       packer.setJointPositions(jointPositions);
@@ -135,7 +135,7 @@ void NaoLolaClient::createSubscriptions()
 
   joint_stiffnesses_sub =
     create_subscription<nao_lola_command_msgs::msg::JointStiffnesses>(
-    "effectors/joint_stiffnesses", 1,
+    "effectors/joint_stiffnesses", rclcpp::SensorDataQoS(),
     [this](const nao_lola_command_msgs::msg::JointStiffnesses & jointStiffnesses) {
       std::lock_guard<std::mutex> guard(packer_mutex);
       packer.setJointStiffnesses(jointStiffnesses);
@@ -144,7 +144,7 @@ void NaoLolaClient::createSubscriptions()
 
   chest_led_sub =
     create_subscription<nao_lola_command_msgs::msg::ChestLed>(
-    "effectors/chest_led", 1,
+    "effectors/chest_led", rclcpp::SensorDataQoS(),
     [this](const nao_lola_command_msgs::msg::ChestLed & chestLed) {
       std::lock_guard<std::mutex> guard(packer_mutex);
       packer.setChestLed(chestLed);
@@ -153,7 +153,7 @@ void NaoLolaClient::createSubscriptions()
 
   left_ear_leds_sub =
     create_subscription<nao_lola_command_msgs::msg::LeftEarLeds>(
-    "effectors/left_ear_leds", 1,
+    "effectors/left_ear_leds", rclcpp::SensorDataQoS(),
     [this](const nao_lola_command_msgs::msg::LeftEarLeds & leftEarLeds) {
       std::lock_guard<std::mutex> guard(packer_mutex);
       packer.setLeftEarLeds(leftEarLeds);
@@ -162,7 +162,7 @@ void NaoLolaClient::createSubscriptions()
 
   right_ear_leds_sub =
     create_subscription<nao_lola_command_msgs::msg::RightEarLeds>(
-    "effectors/right_ear_leds", 1,
+    "effectors/right_ear_leds", rclcpp::SensorDataQoS(),
     [this](const nao_lola_command_msgs::msg::RightEarLeds & rightEarLeds) {
       std::lock_guard<std::mutex> guard(packer_mutex);
       packer.setRightEarLeds(rightEarLeds);
@@ -171,7 +171,7 @@ void NaoLolaClient::createSubscriptions()
 
   left_eye_leds_sub =
     create_subscription<nao_lola_command_msgs::msg::LeftEyeLeds>(
-    "effectors/left_eye_leds", 1,
+    "effectors/left_eye_leds", rclcpp::SensorDataQoS(),
     [this](const nao_lola_command_msgs::msg::LeftEyeLeds & leftEyeLeds) {
       std::lock_guard<std::mutex> guard(packer_mutex);
       packer.setLeftEyeLeds(leftEyeLeds);
@@ -180,7 +180,7 @@ void NaoLolaClient::createSubscriptions()
 
   right_eye_leds_sub =
     create_subscription<nao_lola_command_msgs::msg::RightEyeLeds>(
-    "effectors/right_eye_leds", 1,
+    "effectors/right_eye_leds", rclcpp::SensorDataQoS(),
     [this](const nao_lola_command_msgs::msg::RightEyeLeds & rightEyeLeds) {
       std::lock_guard<std::mutex> guard(packer_mutex);
       packer.setRightEyeLeds(rightEyeLeds);
@@ -189,7 +189,7 @@ void NaoLolaClient::createSubscriptions()
 
   left_foot_led_sub =
     create_subscription<nao_lola_command_msgs::msg::LeftFootLed>(
-    "effectors/left_foot_led", 1,
+    "effectors/left_foot_led", rclcpp::SensorDataQoS(),
     [this](const nao_lola_command_msgs::msg::LeftFootLed & leftFootLed) {
       std::lock_guard<std::mutex> guard(packer_mutex);
       packer.setLeftFootLed(leftFootLed);
@@ -198,7 +198,7 @@ void NaoLolaClient::createSubscriptions()
 
   right_foot_led_sub =
     create_subscription<nao_lola_command_msgs::msg::RightFootLed>(
-    "effectors/right_foot_led", 1,
+    "effectors/right_foot_led", rclcpp::SensorDataQoS(),
     [this](const nao_lola_command_msgs::msg::RightFootLed & rightFootLed) {
       std::lock_guard<std::mutex> guard(packer_mutex);
       packer.setRightFootLed(rightFootLed);
@@ -207,7 +207,7 @@ void NaoLolaClient::createSubscriptions()
 
   head_leds_sub =
     create_subscription<nao_lola_command_msgs::msg::HeadLeds>(
-    "effectors/head_leds", 1,
+    "effectors/head_leds", rclcpp::SensorDataQoS(),
     [this](const nao_lola_command_msgs::msg::HeadLeds & headLeds) {
       std::lock_guard<std::mutex> guard(packer_mutex);
       packer.setHeadLeds(headLeds);
@@ -216,7 +216,7 @@ void NaoLolaClient::createSubscriptions()
 
   sonar_usage_sub =
     create_subscription<nao_lola_command_msgs::msg::SonarUsage>(
-    "effectors/sonar_usage", 1,
+    "effectors/sonar_usage", rclcpp::SensorDataQoS(),
     [this](const nao_lola_command_msgs::msg::SonarUsage & sonarUsage) {
       std::lock_guard<std::mutex> guard(packer_mutex);
       packer.setSonarUsage(sonarUsage);
